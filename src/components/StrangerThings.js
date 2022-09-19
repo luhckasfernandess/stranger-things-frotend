@@ -30,6 +30,7 @@ class StrangerThings extends React.Component {
       characterName: '',
       characters: [],
       page: 1,
+      inDevelopment: process.env.REACT_APP_ON_DEVELOPMENT,
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -107,7 +108,7 @@ class StrangerThings extends React.Component {
 
   render() {
     const {
-      hereIsTheUpsideDownWorld, characterName, characters, page,
+      hereIsTheUpsideDownWorld, characterName, characters, page, inDevelopment,
     } = this.state;
     return (
       <div
@@ -117,6 +118,7 @@ class StrangerThings extends React.Component {
       >
         <div className="content strangerfy">
           <div className="change-reality">
+            <h1>{ inDevelopment === true && 'Em desenvolvimento'}</h1>
             <button type="button" onClick={ this.changeRealityClick }>
               {' '}
               Mudar de Realidade
